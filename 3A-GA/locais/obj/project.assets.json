@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gm3\\Documents\\Aulas\\ETIM\\PW2\\code\\3A-GA\\site\\site.csproj",
+      "projectUniqueName": "C:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\site.csproj",
       "projectName": "site",
-      "projectPath": "C:\\Users\\Gm3\\Documents\\Aulas\\ETIM\\PW2\\code\\3A-GA\\site\\site.csproj",
+      "projectPath": "C:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\site.csproj",
       "packagesPath": "C:\\Users\\Gm3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gm3\\Documents\\Aulas\\ETIM\\PW2\\code\\3A-GA\\site\\obj\\",
+      "outputPath": "C:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

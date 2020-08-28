@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gm3\\source\\repos\\3B-GB\\proj01\\proj01.csproj",
+      "projectUniqueName": "C:\\Users\\Gm3\\source\\repos\\3B-GB\\noticias_games\\proj01.csproj",
       "projectName": "proj01",
-      "projectPath": "C:\\Users\\Gm3\\source\\repos\\3B-GB\\proj01\\proj01.csproj",
+      "projectPath": "C:\\Users\\Gm3\\source\\repos\\3B-GB\\noticias_games\\proj01.csproj",
       "packagesPath": "C:\\Users\\Gm3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gm3\\source\\repos\\3B-GB\\proj01\\obj\\",
+      "outputPath": "C:\\Users\\Gm3\\source\\repos\\3B-GB\\noticias_games\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
