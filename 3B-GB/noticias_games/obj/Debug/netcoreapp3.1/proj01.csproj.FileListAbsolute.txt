@@ -49,8 +49,6 @@ C:\Users\Gm3\source\repos\3B-GB\noticias_games\bin\Debug\netcoreapp3.1\proj01.Vi
 C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\proj01.csprojAssemblyReference.cache
 C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\proj01.AssemblyInfoInputs.cache
 C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\proj01.AssemblyInfo.cs
-C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\proj01.csproj.CoreCompileInputs.cache
-C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\proj01.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\proj01.RazorAssemblyInfo.cache
 C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\proj01.RazorAssemblyInfo.cs
 C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\proj01.TagHelpers.input.cache

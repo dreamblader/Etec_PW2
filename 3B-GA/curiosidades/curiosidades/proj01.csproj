@@ -12,4 +12,8 @@
     <Content Include="README.md" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.21" />
+  </ItemGroup>
+
 </Project>
