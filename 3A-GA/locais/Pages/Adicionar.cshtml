@@ -1,0 +1,55 @@
+﻿@page
+@model AdicionarModel
+@{
+    ViewData["Title"] = "Add page";
+}
+
+
+<div>
+
+    <div class="row justify-content-center">
+        <h1 class="text-center display-4">
+            Visitou algum lugar que não conhecemos?            <br/>            Adiciona ai!
+        </h1>
+    </div>
+
+    <div class="row align-content-between mt-5">
+        <div class="col-6 mr-3">
+            <form id="local-form" method="post">
+
+                <div class="form-group">
+                    <label for="localName">Nome</label>
+                    <input class="form-control" type="text" asp-for="localForm.nome"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="localCity">Cidade</label>
+                    <input class="form-control" type="text" asp-for="localForm.cidade" />
+                </div>
+
+                <div class="form-group">
+                    <label for="localCountry">País</label>
+                    <input class="form-control" type="text" asp-for="localForm.pais" />
+                </div>
+
+                <div class="form-group">
+                    <label for="localImage">Link Imagem</label>
+                    <input class="form-control" type="text" asp-for="localForm.imagem" />
+                </div>
+
+                <div class="form-group">
+                    <label for="localDescription">Descrição</label>
+                    <input class="form-control" type="text" asp-for="localForm.descricao" />
+                </div>
+            </form>
+        </div>
+
+        <div class="col-4 bg-dark ml-3">
+
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <button type="submit" class="btn btn-primary btn-lg px-5" form="local-form">Enviar</button>
+    </div>
+</div>

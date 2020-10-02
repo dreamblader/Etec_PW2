@@ -11,11 +11,12 @@ namespace site.Pages
     public class IndexModel : PageModel
     {
         public string nomeWeb = "LocaisWeb";
-        public string localSelecionado;
+        private MySqlDatabase database = MySqlDatabase.getInstance(); //SINGLETON
+        public Local localSelecionado;
         public int antId;
         public int proxId;
         
-        public List<String> locais = new List<String>();
+        public List<Local> locais = new List<Local>();
 
         private readonly ILogger<IndexModel> _logger;
 
@@ -29,11 +30,7 @@ namespace site.Pages
 
         public void OnGet()
         {
-            locais.Add("Rio de Janeiro");
-            locais.Add("Waterloo");
-            locais.Add("Texas");
-            locais.Add("Paris");
-            locais.Add("Veneza");
+            locais = database.getLocalHome();
 
             localSelecionado = locais[id];
 

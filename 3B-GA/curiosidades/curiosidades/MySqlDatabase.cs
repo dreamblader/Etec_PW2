@@ -10,10 +10,22 @@ namespace proj01
     {
         public MySqlConnection connection;
 
+        private static MySqlDatabase instance;
+
+        public static MySqlDatabase getInstance()
+        {
+            if(instance == null)
+            {
+                instance = new MySqlDatabase();
+            }
+
+            return instance;
+        }
+
         public MySqlDatabase()
         {
             connection = new MySqlConnection();
-            connection.ConnectionString = "database=curiosidades_db;user id=root; pwd=root";
+            connection.ConnectionString = "database=curiosidades_db;user id=user; pwd=1234abcd";
             connection.Open();
         }
 
@@ -21,7 +33,7 @@ namespace proj01
         {
             List<Curiosidade> lista = new List<Curiosidade>();
 
-            MySqlCommand command = connection.CreateCommand();
+            MySqlCommand command = instance.connection.CreateCommand();
             command.CommandText = "SELECT * FROM curiosidades;";
 
             MySqlDataReader reader = command.ExecuteReader();
@@ -35,14 +47,27 @@ namespace proj01
                 lista.Add(novaCuriosidade);
             }
 
+            reader.Close();
+
             return lista;
+        }
+
+        public void addCuriosidade(Curiosidade novaCuriosidade)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "INSERT INTO curiosidades(titulo, descricao)" +
+                "VALUES(?novaCuriosidade.titulo, ?novaCuriosidade.descricao)";
+
+            command.ExecuteNonQuery();
+
+
         }
 
         public List<Usuario> getUsuarios()
         {
             List<Usuario> lista = new List<Usuario>();
 
-            MySqlCommand command = connection.CreateCommand();
+            MySqlCommand command = instance.connection.CreateCommand();
             command.CommandText = "SELECT * FROM usuarios;";
 
             MySqlDataReader reader = command.ExecuteReader();
@@ -58,6 +83,8 @@ namespace proj01
                 lista.Add(novoUsuario);
             }
 
+            reader.Close();
+
             return lista;
         }
 
@@ -65,6 +92,7 @@ namespace proj01
         public void Dispose()
         {
             connection.Close();
+            instance = null;
         }
     }
 }

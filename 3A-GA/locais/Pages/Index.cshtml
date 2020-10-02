@@ -19,25 +19,25 @@
     <div class="row justify-content-center">
         <div class="col-3 push-bottom">
             <a href="/?id=@Model.antId" >
-                <img class="img-thumbnail w-100" src="https://media.moneytimes.com.br/uploads/2020/08/rio-de-janeiro-91.jpg" />
+                <img class="img-thumbnail w-100" src=@Model.locais[Model.antId].imagem />
             </a>
         </div>
         <div class="col-6">
-            <img class="img-fluid w-100" src="https://media.moneytimes.com.br/uploads/2020/08/rio-de-janeiro-91.jpg" />
+            <img class="img-fluid w-100" src=@Model.localSelecionado.imagem />
         </div>
         <div class="col-3 push-bottom">
             <a href="/?id=@Model.proxId" >
-                <img class="img-thumbnail w-100" src="https://media.moneytimes.com.br/uploads/2020/08/rio-de-janeiro-91.jpg" />
+                <img class="img-thumbnail w-100" src=@Model.locais[Model.proxId].imagem />
             </a>
         </div>
     </div>
 
     <div class="row justify-content-center">
-        <p>Descrição: Sobre</p>
+        <p>Descrição: @Model.localSelecionado.descricao</p>
     </div>
 
     <div class="row justify-content-center">
-        <p>@Model.localSelecionado - Brasil</p>
+        <p>@Model.localSelecionado.nome - @Model.localSelecionado.pais</p>
     </div>
 
     <div class="row justify-content-center">

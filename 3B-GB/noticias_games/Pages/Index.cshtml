@@ -31,7 +31,7 @@
             }
         </ol>
         <div class="carousel-inner">
-            @foreach (string item in Model.listaNoticias)
+            @foreach (Noticia item in Model.listaNoticias)
             {
                 @if (index == 0)
                 {
@@ -43,7 +43,7 @@
                 }
 
                 <div class="carousel-item @active">
-                    <img class="img-fluid w-70" src=@item alt="slide @index">
+                    <img class="img-fluid w-70" src=@item.imagem alt="slide @index">
                 </div>
 
                 index++;

@@ -8,19 +8,19 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-12 col-sm-4">
                 <h3>Veja as melhores Curiosidades</h3>
-                @foreach (string titulo in Model.bestCuriosidades)
+                @foreach (Curiosidade curiosidade in Model.bestCuriosidades)
                 {
                     <div class="row justify-content-center">
-                        <p class="col-12 my-2 font-weight-bold">@titulo</p>
+                        <p class="col-12 my-2 font-weight-bold">@curiosidade.titulo</p>
                         <img class="img-thumbnail w-50" src="https://static.historiadomundo.com.br/conteudo/images/a-renovacao-saber-historico-abre-caminho-para-outra-relacao-com-passado-53f65ed4b070b.jpg" />
                     </div>
                 }
 
             </div>
 
-            <div class="col-4">
+            <div class="col-12 col-sm-4 my-4 my-sm-0">
                 <h3>Avalie essas curiosidades</h3>
                 @foreach (string titulo in Model.avalieCuriosidades)
                 {
@@ -33,15 +33,15 @@
             </div>
 
 
-            <div class="col-4">
+            <div class="col-12 col-sm-4">
                 <h3>Melhores Usuários</h3>
-                @foreach (string titulo in Model.usuarios)
+                @foreach (Usuario usuario in Model.usuarios)
                 {
                     <div class="row justify-content-center">
                         <img class="rounded-circle img-thumbnail w-25" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
                         <ul class="simple-list">
-                            <li>Nome Usuário</li>
-                            <li>Pontos 3000</li>
+                            <li>@usuario.nome</li>
+                            <li>Pontos: @usuario.pontos</li>
                         </ul>
                         
                     </div>

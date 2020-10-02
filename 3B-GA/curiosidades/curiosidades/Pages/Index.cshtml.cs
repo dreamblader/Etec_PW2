@@ -10,11 +10,14 @@ namespace proj01.Pages
 {
     public class IndexModel : PageModel
     {
+        private MySqlDatabase database = MySqlDatabase.getInstance();
         public string nome = "Nome do App Aqui";
 
-        public List<string> bestCuriosidades = new List<string>();
+        public List<Curiosidade> bestCuriosidades
+        {get; set;}
+
         public List<string> avalieCuriosidades = new List<string>();
-        public List<string> usuarios = new List<string>();
+        public List<Usuario> usuarios = new List<Usuario>();
 
         private readonly ILogger<IndexModel> _logger;
 
@@ -25,17 +28,13 @@ namespace proj01.Pages
 
         public void OnGet()
         {
-            bestCuriosidades.Add("Top 1 - Curiosidade");
-            bestCuriosidades.Add("Top 2 - Curiosidade");
-            bestCuriosidades.Add("Top 3 - Curiosidade");
-            bestCuriosidades.Add("Top 4 - Curiosidade");
-            bestCuriosidades.Add("Top 5 - Curiosidade");
+            bestCuriosidades = database.getCuriosidades();
+            usuarios = database.getUsuarios();
 
             avalieCuriosidades.Add("Curiosidade Sobre Leões");
             avalieCuriosidades.Add("Curiosidade Sobre o Mar");
             avalieCuriosidades.Add("Curiosidade Sobre Playdoh");
-
-            usuarios.Add("1");
+     
         }
     }
 }
