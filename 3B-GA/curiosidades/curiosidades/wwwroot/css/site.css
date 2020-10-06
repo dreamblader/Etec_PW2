@@ -2,6 +2,7 @@
 for details on configuring this project to bundle and minify static web assets. */
 :root{
   --primary-color: #C4E7F7;
+  --border-primary: #9ed0e7;
 }
 
 
@@ -17,15 +18,20 @@ a {
 }
 
 .btn-primary {
-  color: #fff;
+  color: #000;
   background-color: var(--primary-color);
-  border-color: #1861ac;
+  border-color: var(--border-primary);
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
+  color: #000;
   background-color: var(--primary-color);
-  border-color: #1861ac;
+  border-color: var(--border-primary);
+}
+
+textarea
+{
+  min-height: 200px;
 }
 
 /* Sticky footer styles

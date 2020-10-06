@@ -56,7 +56,10 @@ namespace proj01
         {
             MySqlCommand command = instance.connection.CreateCommand();
             command.CommandText = "INSERT INTO curiosidades(titulo, descricao)" +
-                "VALUES(?novaCuriosidade.titulo, ?novaCuriosidade.descricao)";
+                "VALUES(@titulo, @descricao)";
+
+            command.Parameters.Add("@titulo", MySqlDbType.VarChar).Value = novaCuriosidade.titulo;
+            command.Parameters.Add("@descricao", MySqlDbType.VarChar).Value = novaCuriosidade.descricao;
 
             command.ExecuteNonQuery();
 

@@ -19,6 +19,13 @@ namespace proj01
         public string descricao
         { get; set; }
 
+        public override string ToString()
+        {
+            return "Titulo: "+titulo+
+            "\nJogo: "+jogo+
+            "\nLink Imagem: "+imagem+
+            "\nDescricao: "+descricao;
+        }
         //public CATEGORIA categoria; 
     }
 }

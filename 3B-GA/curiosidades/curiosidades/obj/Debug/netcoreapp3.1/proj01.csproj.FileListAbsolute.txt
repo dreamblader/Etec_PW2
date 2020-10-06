@@ -87,3 +87,6 @@ C:\Users\Gm3\source\repos\3B-GA\curiosidades\curiosidades\obj\Debug\netcoreapp3.
 C:\Users\Gm3\source\repos\3B-GA\curiosidades\curiosidades\obj\Debug\netcoreapp3.1\staticwebassets\proj01.StaticWebAssets.Manifest.cache
 C:\Users\Gm3\source\repos\3B-GA\curiosidades\curiosidades\obj\Debug\netcoreapp3.1\staticwebassets\proj01.StaticWebAssets.xml
 C:\Users\Gm3\source\repos\3B-GA\curiosidades\curiosidades\obj\Debug\netcoreapp3.1\proj01.genruntimeconfig.cache
+C:\Users\Gm3\source\repos\3B-GA\curiosidades\curiosidades\obj\Debug\netcoreapp3.1\Razor\Pages\Avalie.cshtml.g.cs
+C:\Users\Gm3\source\repos\3B-GA\curiosidades\curiosidades\obj\Debug\netcoreapp3.1\Razor\Pages\CuriosidadeDetalhe.cshtml.g.cs
+C:\Users\Gm3\source\repos\3B-GA\curiosidades\curiosidades\obj\Debug\netcoreapp3.1\Razor\Pages\Curiosidades.cshtml.g.cs

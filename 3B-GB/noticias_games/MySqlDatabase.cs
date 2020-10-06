@@ -49,7 +49,23 @@ namespace proj01
                 lista.Add(novaNoticia);
             }
 
+            reader.Close();
+
             return lista;
+        }
+
+        public void addNoticia(Noticia noticia)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "INSERT INTO noticias(titulo, jogo, image, descricao, id_categoria)"+
+            "VALUES(@titulo, @jogo, @imagem, @descricao, 01)";
+
+            command.Parameters.AddWithValue("@titulo",noticia.titulo);
+            command.Parameters.AddWithValue("@jogo",noticia.jogo);
+            command.Parameters.AddWithValue("@imagem",noticia.imagem);
+            command.Parameters.AddWithValue("@descricao",noticia.descricao);
+
+            command.ExecuteNonQuery();
         }
 
         public void Dispose()

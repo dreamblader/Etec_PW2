@@ -86,3 +86,4 @@ C:\Users\Gm3\source\repos\3B-GB\noticias_games\bin\Debug\netcoreapp3.1\System.Xm
 C:\Users\Gm3\source\repos\3B-GB\noticias_games\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\proj01.csproj.CoreCompileInputs.cache
 C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\proj01.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Gm3\source\repos\3B-GB\noticias_games\obj\Debug\netcoreapp3.1\Razor\Pages\Adicionar.cshtml.g.cs
