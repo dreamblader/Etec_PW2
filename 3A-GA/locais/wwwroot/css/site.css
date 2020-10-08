@@ -9,7 +9,20 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
+  color:#000;
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+a:hover{
   color: #0366d6;
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+a > button:hover
+{
+  background-color: #1f4770;
 }
 
 .btn-primary {

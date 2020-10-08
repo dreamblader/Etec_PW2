@@ -9,6 +9,9 @@ namespace site
 {
     public class Local
     {
+        public int id
+        {get; set;}
+
         public string nome
         {get; set;}
 

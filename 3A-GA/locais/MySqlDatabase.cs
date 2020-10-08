@@ -45,6 +45,26 @@ namespace site
             return ReaderToLocalList(command.ExecuteReader());
         }
 
+        public Local getLocal(int id)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM locais WHERE id_locais=@id";
+
+            command.Parameters.AddWithValue("@id", id);
+
+            List<Local> list = ReaderToLocalList(command.ExecuteReader());
+
+            if(list.Count > 0)
+            {
+                return list[0];
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         public void addLocal(Local local) 
         {
             MySqlCommand command = instance.connection.CreateCommand();
@@ -70,6 +90,7 @@ namespace site
             while(reader.Read())
             {
                 Local novoLocal = new Local();
+                novoLocal.id = reader.GetInt32(reader.GetOrdinal("id_locais"));
                 novoLocal.nome = reader.GetString(reader.GetOrdinal("nome"));
                 novoLocal.cidade = reader.GetString(reader.GetOrdinal("cidade"));
                 novoLocal.pais = reader.GetString(reader.GetOrdinal("pais"));

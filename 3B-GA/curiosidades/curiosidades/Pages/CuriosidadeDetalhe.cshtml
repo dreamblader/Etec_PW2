@@ -1,4 +1,10 @@
 ﻿@page
 @model CuriosidadeDetalheModel
 @{
+    ViewData["Title"] = @Model.minhaCuriosidade.titulo;
 }
+
+<div class="text-center">
+    <h2>@Model.minhaCuriosidade.titulo</h2>
+    <h4>@Model.minhaCuriosidade.descricao</h4>
+</div>

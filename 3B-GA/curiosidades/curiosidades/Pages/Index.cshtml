@@ -13,8 +13,10 @@
                 @foreach (Curiosidade curiosidade in Model.bestCuriosidades)
                 {
                     <div class="row justify-content-center">
-                        <p class="col-12 my-2 font-weight-bold">@curiosidade.titulo</p>
-                        <img class="img-thumbnail w-50" src="https://static.historiadomundo.com.br/conteudo/images/a-renovacao-saber-historico-abre-caminho-para-outra-relacao-com-passado-53f65ed4b070b.jpg" />
+                        <a href="/CuriosidadeDetalhe?id=@curiosidade.id">
+                            <p class="col-12 my-2 font-weight-bold">@curiosidade.titulo</p>
+                            <img class="img-thumbnail w-50" src="https://static.historiadomundo.com.br/conteudo/images/a-renovacao-saber-historico-abre-caminho-para-outra-relacao-com-passado-53f65ed4b070b.jpg" />
+                        </a>
                     </div>
                 }
 

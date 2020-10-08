@@ -7,6 +7,9 @@ namespace proj01
 {
     public class Curiosidade
     {
+        public int id
+        { get; set; }
+
         public string titulo
         { get; set; }
 

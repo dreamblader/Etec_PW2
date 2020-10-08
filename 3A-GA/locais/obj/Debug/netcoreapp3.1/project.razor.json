@@ -14417,6 +14417,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\Pages\\LocalDetail.cshtml",
+      "TargetPath": "Pages\\LocalDetail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -14424,6 +14429,11 @@
     {
       "FilePath": "c:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\Pages\\Locais.cshtml",
+      "TargetPath": "Pages\\Locais.cshtml",
       "FileKind": "mvc"
     },
     {

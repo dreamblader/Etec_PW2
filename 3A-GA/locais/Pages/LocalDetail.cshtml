@@ -1,4 +1,14 @@
 ﻿@page
-@model site.Pages.LocalDetailModel
+@model LocalDetailModel
 @{
+    ViewData["Title"] = "Detail Page";
 }
+
+<div class="text-center justify-content-center">
+    <h1>@Model.meuLocal.nome</h1>
+    <h3>@Model.meuLocal.pais - @Model.meuLocal.cidade</h3>
+
+    <img class="img-fluid w-100" src="@Model.meuLocal.imagem"/>
+
+    <p>@Model.meuLocal.descricao</p>
+</div>

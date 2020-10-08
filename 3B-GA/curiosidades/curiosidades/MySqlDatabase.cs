@@ -29,6 +29,28 @@ namespace proj01
             connection.Open();
         }
 
+        public Curiosidade getCuriosidade(int id)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM curiosidades WHERE id_curiosidades=@id;";
+
+            command.Parameters.AddWithValue("@id", id);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            List<Curiosidade> lista = readerCuriosidades(reader);
+        
+            if(lista.Count > 0)
+            {
+                return lista[0];
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+
         public List<Curiosidade> getCuriosidades()
         {
             List<Curiosidade> lista = new List<Curiosidade>();
@@ -38,18 +60,7 @@ namespace proj01
 
             MySqlDataReader reader = command.ExecuteReader();
 
-            while(reader.Read())
-            {
-                Curiosidade novaCuriosidade = new Curiosidade();
-                novaCuriosidade.titulo = reader.GetString(reader.GetOrdinal("titulo"));
-                novaCuriosidade.descricao = reader.GetString(reader.GetOrdinal("descricao"));
-                
-                lista.Add(novaCuriosidade);
-            }
-
-            reader.Close();
-
-            return lista;
+            return readerCuriosidades(reader);
         }
 
         public void addCuriosidade(Curiosidade novaCuriosidade)
@@ -88,6 +99,25 @@ namespace proj01
 
             reader.Close();
 
+            return lista;
+        }
+
+        private List<Curiosidade> readerCuriosidades(MySqlDataReader reader)
+        {
+            List<Curiosidade> lista = new List<Curiosidade>();
+
+            while(reader.Read())
+            {
+                Curiosidade novaCuriosidade = new Curiosidade();
+                novaCuriosidade.id = reader.GetInt32(reader.GetOrdinal("id_curiosidades"));
+                novaCuriosidade.titulo = reader.GetString(reader.GetOrdinal("titulo"));
+                novaCuriosidade.descricao = reader.GetString(reader.GetOrdinal("descricao"));
+                
+                lista.Add(novaCuriosidade);
+            }
+
+            reader.Close();
+            
             return lista;
         }
 
