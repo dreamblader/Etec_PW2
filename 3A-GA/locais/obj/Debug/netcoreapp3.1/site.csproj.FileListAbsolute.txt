@@ -89,3 +89,4 @@ C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\staticwebassets\s
 C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\site.genruntimeconfig.cache
 C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\Razor\Pages\Locais.cshtml.g.cs
 C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\Razor\Pages\LocalDetail.cshtml.g.cs
+C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\Razor\Pages\Revise.cshtml.g.cs

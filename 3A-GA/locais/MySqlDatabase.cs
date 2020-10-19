@@ -37,10 +37,14 @@ namespace site
             return ReaderToLocalList(command.ExecuteReader());
         }
 
-        public List<Local> getLocais()
+        public List<Local> getLocais(Boolean revisado)
         {
+            int flagRevisado = revisado ? 1 : 0;
+
             MySqlCommand command = instance.connection.CreateCommand();
-            command.CommandText = "SELECT * FROM locais";
+            command.CommandText = "SELECT * FROM locais WHERE foi_revisado = @revisado";
+
+            command.Parameters.AddWithValue("@revisado",flagRevisado);
 
             return ReaderToLocalList(command.ExecuteReader());
         }

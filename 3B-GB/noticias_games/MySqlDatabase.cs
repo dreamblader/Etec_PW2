@@ -31,12 +31,42 @@ namespace proj01
 
         public List<Noticia> getNoticias()
         {
-            List<Noticia> lista = new List<Noticia>();
-
             MySqlCommand command = instance.connection.CreateCommand();
             command.CommandText = "SELECT * FROM noticias";
 
             MySqlDataReader reader = command.ExecuteReader();
+
+            
+            return ReaderToNoticia(reader);
+        }
+
+        public List<Noticia> getHomeNoticias()
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM noticias ORDER BY id_noticias DESC LIMIT 5";
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            return ReaderToNoticia(reader);
+        }
+
+        public void addNoticia(Noticia noticia)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "INSERT INTO noticias(titulo, jogo, image, descricao, id_categoria)"+
+            "VALUES(@titulo, @jogo, @imagem, @descricao, 01)";
+
+            command.Parameters.AddWithValue("@titulo",noticia.titulo);
+            command.Parameters.AddWithValue("@jogo",noticia.jogo);
+            command.Parameters.AddWithValue("@imagem",noticia.imagem);
+            command.Parameters.AddWithValue("@descricao",noticia.descricao);
+
+            command.ExecuteNonQuery();
+        }
+
+        private List<Noticia> ReaderToNoticia(MySqlDataReader reader)
+        {
+            List<Noticia> lista = new List<Noticia>();
 
             while(reader.Read())
             {
@@ -54,24 +84,15 @@ namespace proj01
             return lista;
         }
 
-        public void addNoticia(Noticia noticia)
-        {
-            MySqlCommand command = instance.connection.CreateCommand();
-            command.CommandText = "INSERT INTO noticias(titulo, jogo, image, descricao, id_categoria)"+
-            "VALUES(@titulo, @jogo, @imagem, @descricao, 01)";
-
-            command.Parameters.AddWithValue("@titulo",noticia.titulo);
-            command.Parameters.AddWithValue("@jogo",noticia.jogo);
-            command.Parameters.AddWithValue("@imagem",noticia.imagem);
-            command.Parameters.AddWithValue("@descricao",noticia.descricao);
-
-            command.ExecuteNonQuery();
-        }
-
         public void Dispose()
         {
             instance.connection.Close();
             instance = null;
         }
+
+        
     }
 }
+
+// Fibonacci - Método Recursivo
+

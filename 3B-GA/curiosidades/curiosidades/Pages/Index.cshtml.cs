@@ -16,7 +16,9 @@ namespace proj01.Pages
         public List<Curiosidade> bestCuriosidades
         {get; set;}
 
-        public List<string> avalieCuriosidades = new List<string>();
+        public List<Curiosidade> avalieCuriosidades
+        {get; set;}
+        
         public List<Usuario> usuarios = new List<Usuario>();
 
         private readonly ILogger<IndexModel> _logger;
@@ -28,13 +30,9 @@ namespace proj01.Pages
 
         public void OnGet()
         {
-            bestCuriosidades = database.getCuriosidades();
+            bestCuriosidades = database.getHomeCuriosidades(true);
+            avalieCuriosidades = database.getHomeCuriosidades(false);
             usuarios = database.getUsuarios();
-
-            avalieCuriosidades.Add("Curiosidade Sobre Leões");
-            avalieCuriosidades.Add("Curiosidade Sobre o Mar");
-            avalieCuriosidades.Add("Curiosidade Sobre Playdoh");
-     
         }
     }
 }

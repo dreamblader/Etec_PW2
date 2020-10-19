@@ -51,12 +51,26 @@ namespace proj01
             
         }
 
-        public List<Curiosidade> getCuriosidades()
+        public List<Curiosidade> getCuriosidades(Boolean avaliado)
         {
-            List<Curiosidade> lista = new List<Curiosidade>();
-
             MySqlCommand command = instance.connection.CreateCommand();
-            command.CommandText = "SELECT * FROM curiosidades;";
+            int avaliadoFlag = avaliado ? 1 : 0;
+            command.CommandText = "SELECT * FROM curiosidades WHERE avaliado = @avaliado;";
+
+            command.Parameters.AddWithValue("@avaliado", avaliadoFlag);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            return readerCuriosidades(reader);
+        }
+
+        public List<Curiosidade> getHomeCuriosidades(Boolean avaliado)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            int avaliadoFlag = avaliado ? 1 : 0;
+
+            command.CommandText = "SELECT * FROM curiosidades WHERE avaliado = @avaliado ORDER BY id_curiosidades DESC LIMIT 5";
+            command.Parameters.AddWithValue("@avaliado", avaliadoFlag);
 
             MySqlDataReader reader = command.ExecuteReader();
 

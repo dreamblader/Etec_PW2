@@ -1,4 +1,17 @@
 ﻿@page
 @model CuriosidadesModel
 @{
+    ViewData["Title"] = "Lista de Curiosidades";
 }
+
+<div class="row">
+    @foreach (Curiosidade curiosidade in Model.lista)
+    {
+        <div class="justify-content-center text-center col-4">
+            <a href="/CuriosidadeDetalhe?id=@curiosidade.id">
+                <p class="col-12 my-2 font-weight-bold">@curiosidade.titulo</p>
+                <img class="img-thumbnail w-50" src="https://static.historiadomundo.com.br/conteudo/images/a-renovacao-saber-historico-abre-caminho-para-outra-relacao-com-passado-53f65ed4b070b.jpg" />
+            </a>
+        </div>
+    }
+</div>

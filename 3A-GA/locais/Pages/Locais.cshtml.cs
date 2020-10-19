@@ -14,7 +14,7 @@ namespace site.Pages
 
         public void OnGet()
         {
-            list = database.getLocais();
+            list = database.getLocais(true);
         }
     }
 }

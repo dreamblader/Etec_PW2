@@ -13,7 +13,13 @@ h1{
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: #fff;
+  text-decoration: none;
+}
+
+a :hover{
+  color: rgb(130, 236, 81) !important;
+  text-decoration: none !important;
 }
 
 .btn-primary {

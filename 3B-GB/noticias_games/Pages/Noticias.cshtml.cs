@@ -7,15 +7,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace proj01.Pages
 {
-    public class AvalieModel : PageModel
+    public class NoticiasModel : PageModel
     {
-        private MySqlDatabase database = MySqlDatabase.getInstance();
+        MySqlDatabase database = MySqlDatabase.getInstance();
 
-        public List<Curiosidade> lista;
+        public List<Noticia> lista;
 
         public void OnGet()
         {
-            lista = database.getCuriosidades(false);
+            lista = database.getNoticias();
         }
     }
 }

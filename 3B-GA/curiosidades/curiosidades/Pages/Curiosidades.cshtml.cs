@@ -9,8 +9,13 @@ namespace proj01.Pages
 {
     public class CuriosidadesModel : PageModel
     {
+        private MySqlDatabase database = MySqlDatabase.getInstance();
+
+        public List<Curiosidade> lista;
+
         public void OnGet()
         {
+            lista = database.getCuriosidades(true);
         }
     }
 }

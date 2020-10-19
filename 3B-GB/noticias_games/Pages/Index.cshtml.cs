@@ -24,7 +24,7 @@ namespace proj01.Pages
 
         public void OnGet()
         {
-            listaNoticias = database.getNoticias();
+            listaNoticias = database.getHomeNoticias();
         }
     }
 }

@@ -29,6 +29,10 @@ a > img:hover{
   border: 2px solid #0366d6;
 }
 
+.mini-thumb{
+  width:5%;
+}
+
 .btn-primary {
   color: #000;
   background-color: var(--primary-color);

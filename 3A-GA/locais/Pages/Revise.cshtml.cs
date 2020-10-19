@@ -5,17 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace proj01.Pages
+namespace site.Pages
 {
-    public class AvalieModel : PageModel
+    public class ReviseModel : PageModel
     {
-        private MySqlDatabase database = MySqlDatabase.getInstance();
-
-        public List<Curiosidade> lista;
+        MySqlDatabase database = MySqlDatabase.getInstance();
+        public List<Local> list = new List<Local>();
 
         public void OnGet()
         {
-            lista = database.getCuriosidades(false);
+            list = database.getLocais(false);
         }
     }
 }
