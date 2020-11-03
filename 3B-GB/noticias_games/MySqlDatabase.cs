@@ -64,6 +64,29 @@ namespace proj01
             command.ExecuteNonQuery();
         }
 
+        public Usuario login(string username, string password)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM usuarios WHERE username=@username AND password= SHA1(@password)";
+
+            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@password", password);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            List<Usuario> lista = ReaderToUsuario(reader);
+
+            if(lista.Count > 0)
+            {
+                return lista[0];
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+
         private List<Noticia> ReaderToNoticia(MySqlDataReader reader)
         {
             List<Noticia> lista = new List<Noticia>();
@@ -77,6 +100,24 @@ namespace proj01
                 novaNoticia.descricao = reader.GetString(reader.GetOrdinal("descricao"));
 
                 lista.Add(novaNoticia);
+            }
+
+            reader.Close();
+
+            return lista;
+        }
+
+        private List<Usuario> ReaderToUsuario(MySqlDataReader reader)
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            while(reader.Read())
+            {
+                Usuario usuario = new Usuario();
+                usuario.name = reader.GetString(reader.GetOrdinal("name"));
+                usuario.image = reader.GetString(reader.GetOrdinal("image"));
+
+                lista.Add(usuario);
             }
 
             reader.Close();

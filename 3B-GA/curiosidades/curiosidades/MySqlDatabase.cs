@@ -93,27 +93,32 @@ namespace proj01
 
         public List<Usuario> getUsuarios()
         {
-            List<Usuario> lista = new List<Usuario>();
-
             MySqlCommand command = instance.connection.CreateCommand();
             command.CommandText = "SELECT * FROM usuarios;";
 
             MySqlDataReader reader = command.ExecuteReader();
 
-            while (reader.Read())
-            {
-                Usuario novoUsuario = new Usuario();
-                novoUsuario.nome = reader.GetString(reader.GetOrdinal("nome"));
-                novoUsuario.imagem = reader.GetString(reader.GetOrdinal("imagem"));
-                novoUsuario.bio = reader.GetString(reader.GetOrdinal("bio"));
-                novoUsuario.pontos = reader.GetInt32(reader.GetOrdinal("pontos"));
+            return readerUsuario(reader);
+        }
 
-                lista.Add(novoUsuario);
-            }
+        public Usuario getUsuario(int id)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM usuarios WHERE id_usuarios = @id;";
+            command.Parameters.AddWithValue("@id", id);
 
-            reader.Close();
+            MySqlDataReader reader = command.ExecuteReader();
 
-            return lista;
+           List<Usuario> lista = readerUsuario(reader);
+
+           if(lista.Count > 0)
+           {
+               return lista[0];
+           }
+           else
+           {
+               return null;
+           }
         }
 
         private List<Curiosidade> readerCuriosidades(MySqlDataReader reader)
@@ -133,6 +138,48 @@ namespace proj01
             reader.Close();
             
             return lista;
+        }
+
+        private List<Usuario> readerUsuario(MySqlDataReader reader)
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            while (reader.Read())
+            {
+                Usuario novoUsuario = new Usuario();
+                novoUsuario.id = reader.GetInt32(reader.GetOrdinal("id_usuarios"));
+                novoUsuario.nome = reader.GetString(reader.GetOrdinal("nome"));
+                novoUsuario.imagem = reader.GetString(reader.GetOrdinal("imagem"));
+                novoUsuario.bio = reader.GetString(reader.GetOrdinal("bio"));
+                novoUsuario.pontos = reader.GetInt32(reader.GetOrdinal("pontos"));
+
+                lista.Add(novoUsuario);
+            }
+
+            reader.Close();
+
+            return lista;
+        }
+
+        public Usuario login(string user, string pass)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM usuarios WHERE nome_usuario = @user AND senha= SHA1(@pass);";
+            command.Parameters.AddWithValue("@user", user);
+            command.Parameters.AddWithValue("@pass", pass);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            List<Usuario> lista = readerUsuario(reader);
+
+            if(lista.Count > 0)
+            {
+                return lista[0];
+            }
+            else
+            {
+                return null;
+            }
         }
 
 

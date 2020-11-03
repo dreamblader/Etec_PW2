@@ -22,6 +22,16 @@ a :hover{
   text-decoration: none !important;
 }
 
+.mini-thumb{
+  width:5%;
+}
+
+.erro{
+  color: red;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;

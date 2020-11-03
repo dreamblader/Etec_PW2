@@ -8,6 +8,10 @@ namespace proj01
 {
     public class Usuario
     {
+
+        public int id 
+        {get; set;}
+        
         public string nome
         { get; set; }
 
@@ -19,5 +23,10 @@ namespace proj01
 
         public int pontos
         { get; set; }
+
+        public override string ToString()
+        {
+            return "Nome: " + this.nome + "\nBio: " + this.bio + "\nPontos" +  this.pontos;
+        }
     }
 }

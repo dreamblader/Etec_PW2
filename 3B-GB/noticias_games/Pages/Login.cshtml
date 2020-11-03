@@ -1,0 +1,26 @@
+﻿@page
+@model proj01.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login page";
+}
+
+
+<form method="post">
+
+  <div class="form-group">
+    <label for="username">Nome de Usuário</label>
+    <input type="text" class="form-control" id="username" name="username">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Senha</label>
+    <input type="password" class="form-control" id="password" name="password">
+  </div>
+
+  @if(Model.erro)
+  {
+      <div class="text-center erro"> Usuário e Senha Inválidos! </div>
+  }
+
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

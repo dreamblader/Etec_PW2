@@ -33,6 +33,15 @@ a > img:hover{
   width:5%;
 }
 
+.error-feedback{
+    width: 100%;
+    font-weight: bold;
+    margin-top: .25rem;
+    margin-bottom: 1rem;
+    font-size: 120%;
+    color: #dc3545;
+}
+
 .btn-primary {
   color: #000;
   background-color: var(--primary-color);
