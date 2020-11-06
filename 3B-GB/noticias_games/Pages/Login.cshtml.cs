@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -19,9 +20,20 @@ namespace proj01.Pages
 
         public bool erro;
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            int? id = HttpContext.Session.GetInt32("id_user");
             erro= false;
+
+            if(id!=null)
+            {
+                return RedirectToPage("Profile");
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
         public void OnGetError()
@@ -35,7 +47,8 @@ namespace proj01.Pages
 
             if(meuUsuario != null)
             {
-                Console.WriteLine(meuUsuario.ToString());
+                //Console.WriteLine(meuUsuario.ToString());
+                HttpContext.Session.SetInt32("id_user", meuUsuario.id);
                 return RedirectToPage("Profile");
             }
             else

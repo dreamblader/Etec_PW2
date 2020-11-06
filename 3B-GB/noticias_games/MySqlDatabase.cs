@@ -74,7 +74,7 @@ namespace proj01
 
             MySqlDataReader reader = command.ExecuteReader();
 
-            List<Usuario> lista = ReaderToUsuario(reader);
+            List<Usuario> lista = ReaderToUsuarios(reader);
 
             if(lista.Count > 0)
             {
@@ -85,6 +85,26 @@ namespace proj01
                 return null;
             }
             
+        }
+
+        public Usuario getUsuario(int id)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM usuarios WHERE id_usuarios=@id";
+            command.Parameters.AddWithValue("@id",id);
+
+            MySqlDataReader reader = command.ExecuteReader();
+            List<Usuario> lista = ReaderToUsuarios(reader);
+
+            if(lista.Count > 0)
+            {
+                return lista[0];
+            }
+            else
+            {
+                return null;
+            }
+
         }
 
         private List<Noticia> ReaderToNoticia(MySqlDataReader reader)
@@ -107,13 +127,14 @@ namespace proj01
             return lista;
         }
 
-        private List<Usuario> ReaderToUsuario(MySqlDataReader reader)
+        private List<Usuario> ReaderToUsuarios(MySqlDataReader reader)
         {
             List<Usuario> lista = new List<Usuario>();
 
             while(reader.Read())
             {
                 Usuario usuario = new Usuario();
+                usuario.id = reader.GetInt32(reader.GetOrdinal("id_usuarios"));
                 usuario.name = reader.GetString(reader.GetOrdinal("name"));
                 usuario.image = reader.GetString(reader.GetOrdinal("image"));
 

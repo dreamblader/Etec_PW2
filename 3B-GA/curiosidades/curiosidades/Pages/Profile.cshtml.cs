@@ -17,18 +17,20 @@ namespace proj01.Pages
         public IActionResult OnGet()
         {
             int? id = HttpContext.Session.GetInt32("UserId");
-
-            if(id != null)
+            meuUsuario = database.getUsuario(id ?? 0);       
+         
+            if(meuUsuario == null)
             {
-                //GET NO DATABASE DO PERFIL
-                meuUsuario = database.getUsuario(id ?? 0);
-                Console.WriteLine(meuUsuario.ToString());
-                return null;
+                HttpContext.Session.Remove("UserId");
+                return RedirectToPage("Login");
             }
             else
             {
-                return RedirectToPage("Login");
+                //Console.WriteLine(meuUsuario.ToString());
+                return null;
             }
         }
+
+        //private IActionResult redirectLogin()
     }
 }

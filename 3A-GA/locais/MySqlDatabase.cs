@@ -69,6 +69,26 @@ namespace site
 
         }
 
+        public Usuario login (string username,string password)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM usuarios WHERE username= @username AND password= SHA(@password)";
+
+            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@password", password);
+
+            List<Usuario> lista = ReaderToUserList(command.ExecuteReader());
+
+            if(lista.Count > 0)
+            {
+                return lista[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public void addLocal(Local local) 
         {
             MySqlCommand command = instance.connection.CreateCommand();
@@ -104,6 +124,26 @@ namespace site
                 novoLocal.foiRevisado = reader.GetBoolean(reader.GetOrdinal("foi_revisado"));
 
                 list.Add(novoLocal);
+            }
+
+            reader.Close();
+
+            return list;
+        }
+
+        private List<Usuario> ReaderToUserList (MySqlDataReader reader)
+        {
+            List<Usuario> list = new List<Usuario>();
+
+            while(reader.Read())
+            {
+                Usuario novoUsuario = new Usuario();
+                novoUsuario.id = reader.GetInt32(reader.GetOrdinal("id_usuarios"));
+                novoUsuario.nome = reader.GetString(reader.GetOrdinal("nome"));
+                novoUsuario.imagem = reader.GetString(reader.GetOrdinal("imagem"));
+                novoUsuario.bio = reader.GetString(reader.GetOrdinal("bio"));
+       
+                list.Add(novoUsuario);
             }
 
             reader.Close();

@@ -7,6 +7,9 @@ namespace proj01
 {
     public class Usuario
     {
+        public int id
+        {get; set;}
+
         public string name
         {get; set;}
 

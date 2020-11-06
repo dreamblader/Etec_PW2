@@ -42,6 +42,11 @@ a > img:hover{
     color: #dc3545;
 }
 
+.align-content-vertical{
+  display: flex;
+  align-items: center;
+}
+
 .btn-primary {
   color: #000;
   background-color: var(--primary-color);

@@ -14432,6 +14432,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\Pages\\Profile.cshtml",
+      "TargetPath": "Pages\\Profile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\Pages\\Login.cshtml",
+      "TargetPath": "Pages\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\Pages\\Locais.cshtml",
       "TargetPath": "Pages\\Locais.cshtml",
       "FileKind": "mvc"
@@ -14444,6 +14454,11 @@
     {
       "FilePath": "c:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\Pages\\Revise.cshtml",
       "TargetPath": "Pages\\Revise.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gm3\\source\\repos\\3A-GA\\locais\\Pages\\Signup.cshtml",
+      "TargetPath": "Pages\\Signup.cshtml",
       "FileKind": "mvc"
     }
   ],

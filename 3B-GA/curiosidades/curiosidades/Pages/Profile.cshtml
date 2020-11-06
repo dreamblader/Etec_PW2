@@ -1,4 +1,26 @@
 ﻿@page
 @model proj01.Pages.ProfileModel
 @{
+    ViewData["Title"] = "Perfil";
 }
+
+<div class="row mx-5 my-5">
+    <div class="col-4">     
+        <img class="rounded-circle img-thumbnail w-100" src=@Model.meuUsuario.imagem />
+    </div>
+
+    <div class="col-4 text-center justify-content-center align-content-vertical">
+        <ul class="simple-list pl-3">
+            <li><h1>@Model.meuUsuario.nome</h1></li>
+            <li><h1>Pontos: @Model.meuUsuario.pontos</h1></li>
+        </ul>
+    </div>
+
+    <div class="col-12">
+        <h4 class="m-5 p-3">
+            @Model.meuUsuario.bio
+        </h4>
+    </div>
+    
+                        
+</div>

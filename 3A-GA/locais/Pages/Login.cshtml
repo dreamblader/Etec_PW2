@@ -1,0 +1,31 @@
+﻿@page
+@model site.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login page";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-6 mr-3">
+        <form id="local-form" method="post">
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" type="text" asp-for="username"/>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" type="password" asp-for="password" />
+            </div>
+
+            @if(Model.erro)
+            {
+                <div class="erro">Usuário ou senha inválidos</div>
+            }
+
+            <button type="submit" class="btn btn-primary px-5">Enviar</button>
+
+        </form>
+    </div>
+    
+</div>

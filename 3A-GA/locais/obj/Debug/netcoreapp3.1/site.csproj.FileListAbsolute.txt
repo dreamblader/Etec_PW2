@@ -90,3 +90,6 @@ C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\site.genruntimeco
 C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\Razor\Pages\Locais.cshtml.g.cs
 C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\Razor\Pages\LocalDetail.cshtml.g.cs
 C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\Razor\Pages\Revise.cshtml.g.cs
+C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\Razor\Pages\Login.cshtml.g.cs
+C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\Razor\Pages\Profile.cshtml.g.cs
+C:\Users\Gm3\source\repos\3A-GA\locais\obj\Debug\netcoreapp3.1\Razor\Pages\Signup.cshtml.g.cs

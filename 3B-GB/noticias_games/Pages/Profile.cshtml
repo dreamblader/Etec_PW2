@@ -1,4 +1,15 @@
 ﻿@page
 @model proj01.Pages.ProfileModel
 @{
+    ViewData["Title"] = "Profile page";
 }
+
+<div class="row justify-content-center m-5 p-3">
+    <div class="col-4">
+        <img class="img-fluid img-thumbnail rounded-circle w-100" src=@Model.perfil.image />
+    </div>
+
+    <div class="col-4 text-center align-vertical-center pl-5">
+        <h1>@Model.perfil.name</h1>
+    </div>
+</div>

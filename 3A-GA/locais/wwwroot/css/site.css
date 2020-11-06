@@ -4,7 +4,6 @@ for details on configuring this project to bundle and minify static web assets. 
 a.navbar-brand {
   white-space: normal;
   text-align: center;
-  word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
@@ -29,6 +28,17 @@ a > button:hover
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.erro{
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.mini-thumb{
+  width:5%;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
