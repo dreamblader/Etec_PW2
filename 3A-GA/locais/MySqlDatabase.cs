@@ -89,6 +89,25 @@ namespace site
             }
         }
 
+        public Usuario getUsuario(int id)
+        {
+             MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM usuarios WHERE id_usuarios= @id";
+            command.Parameters.AddWithValue("@id", id);
+
+            List<Usuario> lista = ReaderToUserList(command.ExecuteReader());
+
+            if(lista.Count > 0)
+            {
+                return lista[0];
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         public void addLocal(Local local) 
         {
             MySqlCommand command = instance.connection.CreateCommand();

@@ -64,6 +64,20 @@ namespace proj01
             command.ExecuteNonQuery();
         }
 
+        public void addUsuario(Usuario usuario, string username, string password)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "INSERT INTO usuarios(username, password, image, name)"+
+            "VALUES(@username, @password, @image, @name)";
+
+            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@image", usuario.image);
+            command.Parameters.AddWithValue("@name", usuario.name);
+
+            command.ExecuteNonQuery();
+        }
+
         public Usuario login(string username, string password)
         {
             MySqlCommand command = instance.connection.CreateCommand();

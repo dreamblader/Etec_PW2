@@ -19,11 +19,14 @@ namespace proj01.Pages
 
         public bool userError;
 
+        public bool userRedirect;
+
         private MySqlDatabase database = MySqlDatabase.getInstance();
 
         public IActionResult OnGet()
         {
             userError = false;
+            userRedirect = false;
 
             if(HttpContext.Session.GetInt32("UserId") != null)
             {
@@ -54,6 +57,12 @@ namespace proj01.Pages
         public void OnGetError(bool state)
         {
             userError = state;
+            userRedirect = false;
+        }
+
+        public void OnGetAddRedirect()
+        {
+            userRedirect = true;
         }
     }
 }

@@ -13,6 +13,7 @@ a {
   text-decoration: none !important;
 }
 
+
 a:hover{
   color: #0366d6;
   outline: none !important;
@@ -35,6 +36,11 @@ a > button:hover
   font-weight: bold;
   text-align: center;
   font-size: 1rem;
+}
+
+.align-content-vertical{
+  display: flex;
+  align-items: center;
 }
 
 .mini-thumb{

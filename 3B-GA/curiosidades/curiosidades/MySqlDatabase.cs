@@ -80,15 +80,31 @@ namespace proj01
         public void addCuriosidade(Curiosidade novaCuriosidade)
         {
             MySqlCommand command = instance.connection.CreateCommand();
-            command.CommandText = "INSERT INTO curiosidades(titulo, descricao)" +
-                "VALUES(@titulo, @descricao)";
+            command.CommandText = "INSERT INTO curiosidades(titulo, descricao, id_usuarios)" +
+                "VALUES(@titulo, @descricao, @id)";
 
-            command.Parameters.Add("@titulo", MySqlDbType.VarChar).Value = novaCuriosidade.titulo;
-            command.Parameters.Add("@descricao", MySqlDbType.VarChar).Value = novaCuriosidade.descricao;
+            command.Parameters.AddWithValue("@titulo", novaCuriosidade.titulo);
+            command.Parameters.AddWithValue("@descricao", novaCuriosidade.descricao);
+            command.Parameters.AddWithValue("@id", novaCuriosidade.usuarioId);
 
             command.ExecuteNonQuery();
 
 
+        }
+
+        public void addUsuario(Usuario usuario, string username, string password)
+        {
+             MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "INSERT INTO usuarios(nome, imagem, bio, nome_usuario, senha)" +
+                "VALUES(@nome, @imagem, @bio, @username, SHA1(@password))";
+
+            command.Parameters.AddWithValue("@nome", usuario.nome);
+            command.Parameters.AddWithValue("@imagem", usuario.imagem);
+            command.Parameters.AddWithValue("@bio", usuario.bio);
+            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@password", password);
+
+            command.ExecuteNonQuery();
         }
 
         public List<Usuario> getUsuarios()

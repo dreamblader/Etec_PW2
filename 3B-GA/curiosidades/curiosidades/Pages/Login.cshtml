@@ -4,18 +4,25 @@
     ViewData["Title"] = "Login";
 }
 
+@if(Model.userRedirect)
+{
+    <div class="row justify-content-center">
+        <h1 class="text-center mt-5 col-6">É preciso estar conectado para adicionar uma curiosidade</h1>
+    </div>
+}
+
 <div class="container p-5">
     <form method="post" class="mx-md-5 mx-3">
 
         <div class="form-group">
-            <label for="formUser">Usuáro</label>
+            <label for="formUser">Usuário</label>
             <input type="text" asp-for="user" class="form-control" id="formUser">
         </div>
 
         <div class="form-group">
             <label for="formPass">Senha</label>
             <input type="password" asp-for="pass" class="form-control" id="formPass">    
-        </div>
+        </div>   
 
         @if (Model.userError)
         {
@@ -24,7 +31,7 @@
 
         
 
-       
+       <a class="m-2 row" href="/Register">Ainda não é cadastrado? Faça sua conta aqui!</a>
 
         
 

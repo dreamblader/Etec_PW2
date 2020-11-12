@@ -1,4 +1,42 @@
 ﻿@page
 @model proj01.Pages.SignupModel
 @{
+    ViewData["Title"] = "Signup page";
 }
+
+<form method="post">
+
+  <div class="form-group">
+    <label for="username">Nome de Usuário</label>
+    <input type="text" class="form-control" id="username" name="username">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Senha</label>
+    <input type="password" class="form-control" id="password" name="password">
+  </div>
+
+  <div class="form-group">
+    <label for="passwordRepeat">Repetir Senha</label>
+    <input type="password" class="form-control" id="passwordRepeat" name="passwordRepeat">
+  </div>
+
+  @if(Model.error)
+  {
+      <div class="erro mb-3"> Senhas incompativeis! </div>
+  }
+
+  <div class="form-group">
+    <label for="name">Nome</label>
+    <input type="text" class="form-control" id="name" name="usuario.name">
+  </div>
+
+  <div class="form-group">
+    <label for="image">Link da Imagem</label>
+    <input type="text" class="form-control" id="image" name="usuario.image">
+  </div>
+
+  
+
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

@@ -16,6 +16,9 @@ namespace proj01
         public string descricao
         { get; set; }
 
+        public int usuarioId
+        { get; set; }
+
         public override string ToString()
         {
             return "Titulo: " + this.titulo + "\nDescrição: " + this.descricao;
