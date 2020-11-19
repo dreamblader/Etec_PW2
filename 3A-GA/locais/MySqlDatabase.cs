@@ -108,6 +108,22 @@ namespace site
 
         }
 
+        public void addUsuario(Usuario usuario, string username, string password)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "INSERT INTO " +
+                "usuarios(username,password,nome,imagem,bio) " +
+                "VALUES (@username, SHA(@password), @nome, @imagem, @bio)";
+
+            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@nome", usuario.nome);
+            command.Parameters.AddWithValue("@imagem", usuario.imagem);
+            command.Parameters.AddWithValue("@bio", usuario.bio);
+
+            command.ExecuteNonQuery();
+        }
+
         public void addLocal(Local local) 
         {
             MySqlCommand command = instance.connection.CreateCommand();

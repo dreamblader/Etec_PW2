@@ -8,3 +8,34 @@
     <h2>@Model.minhaCuriosidade.titulo</h2>
     <h4>@Model.minhaCuriosidade.descricao</h4>
 </div>
+
+@if(!Model.minhaCuriosidade.reviewed)
+{
+    <div class="row justify-content-center">
+
+    @if(Model.userIsConnected)
+    {  
+        <form method="post" class="m-5 col-4">
+            <div class="input-group mb-3">
+                <select class="custom-select" id="reviewRate">
+                    <option selected>Essa Curiosidade É?</option>
+                    <option value="1">Útil</option>
+                    <option value="2">Comum</option>
+                    <option value="3">Não Existe</option>
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Avalie</button>
+                </div>
+            </div>
+        </form>    
+    }
+    else
+    {
+        <a class="col-6 text-center m-5" href="/Login">
+            <h5>Para Avaliar Esta Curiosidade Você deve estar Conectado</h5>
+        </a>
+    }
+
+    </div>
+    
+}

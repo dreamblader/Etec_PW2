@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -17,11 +18,19 @@ namespace proj01.Pages
 
         MySqlDatabase database = MySqlDatabase.getInstance();
 
+        public bool userIsConnected;
+
         public void OnGet()
         {
             
             minhaCuriosidade = database.getCuriosidade(id);
-            Console.WriteLine(minhaCuriosidade.ToString());
+            userIsConnected = HttpContext.Session.GetInt32("UserId") != null;
+            
+        }
+
+        public void OnPost()
+        {
+            minhaCuriosidade = database.getCuriosidade(id);
         }
     }
 }

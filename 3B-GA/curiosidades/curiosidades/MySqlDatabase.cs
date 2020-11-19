@@ -147,6 +147,7 @@ namespace proj01
                 novaCuriosidade.id = reader.GetInt32(reader.GetOrdinal("id_curiosidades"));
                 novaCuriosidade.titulo = reader.GetString(reader.GetOrdinal("titulo"));
                 novaCuriosidade.descricao = reader.GetString(reader.GetOrdinal("descricao"));
+                novaCuriosidade.reviewed = reader.GetBoolean(reader.GetOrdinal("avaliado"));
                 
                 lista.Add(novaCuriosidade);
             }

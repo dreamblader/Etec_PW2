@@ -1,4 +1,48 @@
 ﻿@page
 @model site.Pages.SignupModel
 @{
+    ViewData["Title"] = "Registro de Usuário";
 }
+
+<div class="container p-5">
+    <form method="post" class="mx-md-5 mx-3">
+
+        <div class="form-group">
+            <label for="formUsername">Username</label>
+            <input type="text" asp-for="username" class="form-control" id="formUsername">
+        </div>
+
+        <div class="form-group">
+            <label for="formPass">Senha</label>
+            <input type="password" asp-for="password" class="form-control" id="formPass">
+        </div>
+
+        <div class="form-group">
+            <label for="formPassAgain">Repetir Senha</label>
+            <input type="password" asp-for="passwordAgain" class="form-control" id="formPassAgain">
+        </div>
+
+        @if (Model.error)
+        {
+            <div class="erro">Senhas incompativeis</div>
+        }
+
+        <div class="form-group">
+            <label for="formName">Nome</label>
+            <input type="text" asp-for="usuario.nome" class="form-control" id="formName">
+        </div>
+
+        <div class="form-group">
+            <label for="formImage">Link da Imagem do Perfil</label>
+            <input type="text" asp-for="usuario.imagem" class="form-control" id="formImage">
+        </div>
+
+        <div class="form-group">
+            <label for="formBio">Bio</label>
+            <textarea type="text" asp-for="usuario.bio" rows="5" class="form-control" id="formBio">
+            </textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+</div>

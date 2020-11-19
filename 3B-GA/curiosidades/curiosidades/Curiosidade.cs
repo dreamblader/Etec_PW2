@@ -16,6 +16,9 @@ namespace proj01
         public string descricao
         { get; set; }
 
+        public bool reviewed
+        { get; set; }
+
         public int usuarioId
         { get; set; }
 
