@@ -121,6 +121,21 @@ namespace proj01
 
         }
 
+        public List<Categoria> getCategorias(int id)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT id_categorias, nome " +
+             "FROM categoria_usuario cu " + 
+             "JOIN categorias c ON c.id_categorias = cu.id_categoria " +
+             "WHERE id_usuario= @id;";
+
+            command.Parameters.AddWithValue("@id",id);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            return ReaderToCategoria(reader);
+        }
+
         private List<Noticia> ReaderToNoticia(MySqlDataReader reader)
         {
             List<Noticia> lista = new List<Noticia>();
@@ -160,6 +175,24 @@ namespace proj01
             return lista;
         }
 
+         private List<Categoria> ReaderToCategoria(MySqlDataReader reader)
+        {
+            List<Categoria> lista = new List<Categoria>();
+
+            while(reader.Read())
+            {
+                Categoria novaCategoria = new Categoria();
+                novaCategoria.id = reader.GetInt32(reader.GetOrdinal("id_categorias"));
+                novaCategoria.nome = reader.GetString(reader.GetOrdinal("nome"));
+        
+                lista.Add(novaCategoria);
+            }
+
+            reader.Close();
+
+            return lista;
+        }
+
         public void Dispose()
         {
             instance.connection.Close();
@@ -169,6 +202,4 @@ namespace proj01
         
     }
 }
-
-// Fibonacci - Método Recursivo
 

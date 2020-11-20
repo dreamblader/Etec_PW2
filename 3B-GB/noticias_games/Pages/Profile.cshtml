@@ -13,3 +13,12 @@
         <h1>@Model.perfil.name</h1>
     </div>
 </div>
+
+<div class="row justify-content-center m-5">
+    <ul>
+    @foreach (Categoria categoria in Model.minhasCategorias)
+    {
+        <li><h4>@categoria.nome</h4></li>
+    }
+    </ul>
+</div>

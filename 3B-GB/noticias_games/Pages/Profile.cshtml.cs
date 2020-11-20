@@ -11,12 +11,13 @@ namespace proj01.Pages
     public class ProfileModel : PageModel
     {
         private MySqlDatabase database = MySqlDatabase.getInstance();
+        public List<Categoria> minhasCategorias;
         public Usuario perfil;
 
         public IActionResult OnGet()
         {
-            int? id = HttpContext.Session.GetInt32("id_user");
-            perfil = database.getUsuario(id ?? 0);
+            int id = HttpContext.Session.GetInt32("id_user") ?? 0;
+            perfil = database.getUsuario(id);
 
             if(perfil == null)
             {
@@ -25,6 +26,7 @@ namespace proj01.Pages
             }
             else
             {
+                minhasCategorias = database.getCategorias(id);
                 return null;
             }
         }
