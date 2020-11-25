@@ -38,6 +38,7 @@ namespace proj01.Pages
             Console.WriteLine(novaCuriosidade.ToString());
             novaCuriosidade.usuarioId = id;
             database.addCuriosidade(novaCuriosidade);
+            database.addScore(id, 1);
 
             return RedirectToPage("Index");
         }

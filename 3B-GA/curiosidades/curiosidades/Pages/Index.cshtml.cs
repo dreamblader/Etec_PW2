@@ -32,7 +32,7 @@ namespace proj01.Pages
         {
             bestCuriosidades = database.getHomeCuriosidades(true);
             avalieCuriosidades = database.getHomeCuriosidades(false);
-            usuarios = database.getUsuarios();
+            usuarios = database.getHomeUsuarios();
         }
     }
 }

@@ -29,6 +29,8 @@ namespace proj01
             connection.Open();
         }
 
+        //**************************** GET SECTION****************************
+
         public Curiosidade getCuriosidade(int id)
         {
             MySqlCommand command = instance.connection.CreateCommand();
@@ -77,6 +79,73 @@ namespace proj01
             return readerCuriosidades(reader);
         }
 
+        public List<Usuario> getUsuarios()
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM usuarios;";
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            return readerUsuario(reader);
+        }
+
+        public List<Usuario> getHomeUsuarios()
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM usuarios ORDER BY pontos DESC LIMIT 5;";
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            return readerUsuario(reader);
+        }
+
+        public int getReview(int idUser, int idCuriosidade)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT nota FROM avaliacao " + 
+            "WHERE id_usuario = @idUser AND id_curiosidade = @idCuriosidade;";
+
+            command.Parameters.AddWithValue("@idUser", idUser);
+            command.Parameters.AddWithValue("@idCuriosidade", idCuriosidade);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            int result = 0;
+
+            if(reader.Read())
+            {
+                result = reader.GetInt32(reader.GetOrdinal("nota"));
+            }
+
+            reader.Close();
+
+            return result;
+            
+        }
+
+
+        public Usuario getUsuario(int id)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "SELECT * FROM usuarios WHERE id_usuarios = @id;";
+            command.Parameters.AddWithValue("@id", id);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+           List<Usuario> lista = readerUsuario(reader);
+
+           if(lista.Count > 0)
+           {
+               return lista[0];
+           }
+           else
+           {
+               return null;
+           }
+        }
+
+        //********************** ADD SECTION *********************************
+
         public void addCuriosidade(Curiosidade novaCuriosidade)
         {
             MySqlCommand command = instance.connection.CreateCommand();
@@ -107,35 +176,48 @@ namespace proj01
             command.ExecuteNonQuery();
         }
 
-        public List<Usuario> getUsuarios()
+        public void addReview(int idUser, int idCuriosidade, int nota)
         {
-            MySqlCommand command = instance.connection.CreateCommand();
-            command.CommandText = "SELECT * FROM usuarios;";
+             MySqlCommand command = instance.connection.CreateCommand();
+             //TODO otimizacao do sistema pode ser feita aqui
+            command.CommandText = "INSERT INTO avaliacao(id_usuario, id_curiosidade, nota)" +
+                "VALUES(@idUser, @idCuriosidade, @nota)";
 
-            MySqlDataReader reader = command.ExecuteReader();
+            command.Parameters.AddWithValue("@idUser", idUser);
+            command.Parameters.AddWithValue("@idCuriosidade", idCuriosidade);
+            command.Parameters.AddWithValue("@nota", nota);
 
-            return readerUsuario(reader);
+            command.ExecuteNonQuery();
         }
 
-        public Usuario getUsuario(int id)
+        public void addScore(int idUser, int pontos)
         {
             MySqlCommand command = instance.connection.CreateCommand();
-            command.CommandText = "SELECT * FROM usuarios WHERE id_usuarios = @id;";
-            command.Parameters.AddWithValue("@id", id);
+            command.CommandText = "UPDATE usuarios SET pontos= pontos + @pontos " +
+                "WHERE id_usuarios = @idUser";
 
-            MySqlDataReader reader = command.ExecuteReader();
+            command.Parameters.AddWithValue("@idUser", idUser);
+            command.Parameters.AddWithValue("@pontos", pontos);
 
-           List<Usuario> lista = readerUsuario(reader);
-
-           if(lista.Count > 0)
-           {
-               return lista[0];
-           }
-           else
-           {
-               return null;
-           }
+            command.ExecuteNonQuery();
         }
+
+//********************************** UPDATE SECTION **********************************************
+
+         public void updateReview(int idUser, int idCuriosidade, int nota)
+        {
+            MySqlCommand command = instance.connection.CreateCommand();
+            command.CommandText = "UPDATE avaliacao SET nota= @nota " +
+                "WHERE id_usuario = @idUser AND id_curiosidade = @idCuriosidade";
+
+            command.Parameters.AddWithValue("@idUser", idUser);
+            command.Parameters.AddWithValue("@idCuriosidade", idCuriosidade);
+            command.Parameters.AddWithValue("@nota", nota);
+
+            command.ExecuteNonQuery();
+        }
+
+//*************************** READER SECTION ****************************************************************
 
         private List<Curiosidade> readerCuriosidades(MySqlDataReader reader)
         {
