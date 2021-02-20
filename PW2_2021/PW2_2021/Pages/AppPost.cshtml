@@ -1,0 +1,31 @@
+﻿@page
+@model MyApp.Namespace.AppPostModel
+@{
+   ViewData["Title"] = "Postagem de App";
+}
+
+<div class="text-center">HELLO WORLD! @Model.name</div>
+
+<form method="POST">
+    <div class="mb-3">
+        <label for="appName" class="form-label">Qual o Nome do seu App?</label>
+        <input type="text" class="form-control" id="appName" name="appName">
+    </div>
+    <div class="mb-3">
+        <label for="appDesc" class="form-label">Descreva seu App</label>
+        <textarea class="form-control" id="appDesc" rows="5" name="appDesc"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="appPrice" class="form-label">Qual o Preço do seu App?</label>
+        <input type="text" class="form-control" id="appPrice" name="appPrice">
+    </div>
+    <div class="mb-3">
+        <label for="appFile" class="form-label">Coloque o Arquivo do seu App aqui</label>
+        <input class="form-control" type="file" id="appFile" name="appFil">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="terms" name="terms">
+        <label class="form-check-label" for="terms">Eu aceito os Termos de Postagem de App</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Postar!</button>
+</form>
